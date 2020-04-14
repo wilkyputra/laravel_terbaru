@@ -75,6 +75,8 @@ Route::group(['middleware' => ['auth','checkRole:admin,staff']], function(){
 		Route::get('/barang/editBarang/{id}', 'BarangController@edit');
 		Route::post('/barang/updateBarang/{id}', 'BarangController@update');
 
+		Route::get('/barang/exportXLSX','BarangController@exportXLSX');
+
 		//dashbrot
 		Route::get('/dashboard','Controller@dashboard');
 
