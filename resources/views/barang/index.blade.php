@@ -44,6 +44,7 @@
                   <th scope="col">Barang Rusak</th>
                   <th scope="col">Dibuat Oleh</th>
                   <th scope="col">Diupdate Oleh</th>
+                  <th scope="col">Gambar</th>
                   <th scope="col">Action</th>
                 </tr>
               </thead>
@@ -65,6 +66,9 @@
                           {{ $u->nama_user }}
                         @endif
                       @endforeach</td>
+                  <td>
+                           <center><img src="{{ url('uploads/'.$b->gambar) }}" style="width: 70px; height: 70px; object-fit: cover;" /></center>
+                  </td>
                   <td ><a name="btn-update" href="{{ url('/barang/editBarang/'. $b->id) }}"> Edit</a>
                     @if(auth()->user()->role == "admin") |
                   <a name="btn-delete" href="{{ url('/barang/deleteBarang/'. $b->id) }}"> Delete</a>

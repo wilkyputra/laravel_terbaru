@@ -2,7 +2,18 @@
 
 @section('content')
 <section class="section">
-  
+  @if(count($errors) > 0)
+            <div class="card-body">
+                <div class="alert alert-danger">
+                    Create Error
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
   <div class="section-header">
     <h1>Barang <small>Add Data</small></h1>
   </div>
@@ -39,6 +50,12 @@
               <div class="form-group">
                 <label>Rusak</label>
                 <input type="number" min="0" name="broken" class="form-control" required>
+              </div>
+              <input type="hidden" name="created_by" value="{{ auth()->user()->id }}">
+              <div class="form-group">
+                <div class="form-group">
+                <label>Gambar</label>
+                <input type="file" name="gambar" id="foto" accept=".jpg, .png, .jpeg">
               </div>
               <input type="hidden" name="created_by" value="{{ auth()->user()->id }}">
               <div class="form-group">

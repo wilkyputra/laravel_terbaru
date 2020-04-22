@@ -21,6 +21,7 @@ class CreateBarang extends Migration
             $table->integer('broken');
             $table->bigInteger('created_by')->unsigned()->nullable();
             $table->bigInteger('updated_by')->unsigned()->nullable();
+            $table->string('gambar');
             $table->timestamps();
             $table->foreign('ruangan_id')->references('id')->on('ruangan')->onDelete('cascade');
             $table->foreign('created_by')->references('id')->on('user')->onDelete('cascade');
