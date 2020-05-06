@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth','checkRole:admin']], function(){
 
 		Route::get('/fakultas/editFakultas/{id}', 'FakultasController@edit');
 		Route::post('/fakultas/updateFakultas/{id}', 'FakultasController@update');
+		Route::post('/fakultas/import', 'FakultasController@import');
 
 		//jurusan
 		Route::get('/jurusan', 'JurusanController@index');
